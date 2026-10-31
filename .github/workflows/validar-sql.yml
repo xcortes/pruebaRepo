@@ -1,0 +1,48 @@
+name: Validar cambios SQL
+
+on:
+  # Ejecución automática al enviar cambios a QA
+  push:
+    branches:
+      - qa
+    paths:
+      - "database/**/*.sql"
+      - ".github/workflows/validar-sql.yml"
+  
+  # Valida los PR dirigidos a QA
+  pull_request:
+    branches:
+      - qa
+    paths:
+      - "database/**/*.sql"
+  
+  #Tambien permite ejecución manual
+  workflow_dispatch:
+    inputs:
+      esquema:
+        description: 'Esquema ficticio que se validada'
+        required: true
+        default: "APP_QA"
+        type: string
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v7
+
+      - uses: Mostrar evento
+        run: |
+          echo "Evento: $GITHUB_EVENT_NAME"
+          echo "Rama o referencia: $GITHUB_REF"
+      
+      - name: Mostrar entrada manual 
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: | 
+          echo "Esquema seleccionado: ${{ inputs }}"
+
+      - name: Buscar Script SQL
+        run: |
+          find database -type f --name "*.sql" -print
