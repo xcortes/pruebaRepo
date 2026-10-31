@@ -36,7 +36,7 @@ jobs:
       - name: Mostrar evento
         run: |
           echo "Evento: $GITHUB_EVENT_NAME"
-          echo "Rama o referencia: $GITHUB_REF"
+          echo "Rama o referencia: $GITHUB_REF_NAME"
       
       - name: Mostrar entrada manual 
         if: ${{ github.event_name == 'workflow_dispatch' }}
