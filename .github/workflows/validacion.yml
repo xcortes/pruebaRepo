@@ -15,7 +15,7 @@ jobs:
     steps:
       # Descarga el repositorio dentro del runner
       - name: Descargar código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # Ejecuta varios comandos Bash
       - name: Mostrar información
