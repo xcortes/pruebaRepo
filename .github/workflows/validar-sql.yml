@@ -33,7 +33,7 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v7
 
-      - uses: Mostrar evento
+      - name: Mostrar evento
         run: |
           echo "Evento: $GITHUB_EVENT_NAME"
           echo "Rama o referencia: $GITHUB_REF"
