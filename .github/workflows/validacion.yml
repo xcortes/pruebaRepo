@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   validar:
@@ -20,13 +21,20 @@ jobs:
       # Ejecuta varios comandos Bash
       - name: Mostrar información
         run: |
-          echo "Repositorio $GITHUB_REPOSITORY"
+          echo "Repositorio: $GITHUB_REPOSITORY"
           echo "Rama: $GITHUB_REF_NAME"
-          echo "Usuario del runner:"
+          echo "Usuario del runner:" 
           whoami
+          echo "Nombre Sistema Operativo"
+          uname -a
+
     
       # Comprueba que exista un archivo
       - name: Validar README
         run: |
           test -f README.md
           echo "README.md encontrado correctamente"
+      - name: Validar ruta .github
+        run: |
+          test -d .github
+          echo ".github encontrado correctamente"
