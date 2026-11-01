@@ -22,8 +22,12 @@ on:
       ambientes:
         description: 'Ambiente de validación'
         required: true
-        default: "qa"
-        type: string
+        type: choice
+        options:
+          - qa
+          - stagin
+          - main
+
       esquema:
         description: 'Esquema ficticio que se validada'
         required: true
