@@ -45,4 +45,4 @@ jobs:
 
       - name: Buscar Script SQL
         run: |
-          find database -type f --name "*.sql" -print
+          find database -type f -name "*.sql" -print
