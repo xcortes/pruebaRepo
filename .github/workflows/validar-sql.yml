@@ -51,7 +51,7 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' }}
         run: | 
           echo "Esquema seleccionado: ${{ inputs.esquema }}"
-          echo "Ambiente seleccionado: ${{ inputs.ambientes}}"
+          echo "Ambiente seleccionado: ${{ inputs.ambiente }}"
         
 
       - name: Buscar Script SQL
