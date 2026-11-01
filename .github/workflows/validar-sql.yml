@@ -49,9 +49,15 @@ jobs:
       
       - name: Mostrar entrada manual 
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        run: | 
-          echo "Esquema seleccionado: ${{ inputs.esquema }}"
-          echo "Ambiente seleccionado: ${{ inputs.ambiente }}"
+        env:
+          AMBIENTE: ${{ inputs.ambiente }}
+          ESQUEMA: ${{ inputs.esquema }}
+        run: |
+          echo "Esquema seleccionado: $ESQUEMA"
+          echo "Ambiente seleccionado: $AMBIENTE"
+           
+          #echo "Esquema seleccionado: ${{ inputs.esquema }}"
+          #echo "Ambiente seleccionado: ${{ inputs.ambiente }}"
         
 
       - name: Buscar Script SQL
