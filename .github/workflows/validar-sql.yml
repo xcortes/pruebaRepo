@@ -48,6 +48,7 @@ jobs:
         run: | 
           echo "Esquema seleccionado: ${{ inputs.esquema }}"
           echo "Ambiente seleccionado: ${{ inputs.ambientes}}"
+        
 
       - name: Buscar Script SQL
         run: |
