@@ -19,13 +19,13 @@ on:
   #Tambien permite ejecución manual
   workflow_dispatch:
     inputs:
-      ambientes:
+      ambiente:
         description: 'Ambiente de validación'
         required: true
         type: choice
         options:
           - qa
-          - stagin
+          - staging
           - main
 
       esquema:
